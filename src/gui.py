@@ -27,7 +27,7 @@ key = Constants.OPEN_AI_API_KEY
 def init():
 	ss['api_key'] = key
 	model.use_key(ss['api_key'])
-	index = utils.load_dict_from_file('embeddings.json')
+	index = utils.load_dict_from_file('./embeddings.json')
 	ss['index'] = index
 	ss['debug']['n_pages'] = len(index['pages'])
 	ss['debug']['n_texts'] = len(index['texts'])
