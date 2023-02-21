@@ -20,15 +20,17 @@ import prompts
 import model
 import utils
 import Constants
+import os 
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
 key = Constants.OPEN_AI_API_KEY
-file_path = '/app/ask-my-pdf/src/embeddings.json'
+file_name = 'data_file.pdf'
 
 # Initialize
 def init():
 	ss['api_key'] = key
 	model.use_key(ss['api_key'])
-	index = utils.load_dict_from_file(file_path)
+	index = utils.load_dict_from_file(os.path.join(dir_path, file_name))
 	ss['index'] = index
 	ss['debug']['n_pages'] = len(index['pages'])
 	ss['debug']['n_texts'] = len(index['texts'])
