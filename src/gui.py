@@ -18,6 +18,24 @@ header3 = st.empty() # for errors / messages
 
 import prompts
 import model
+import utils
+import Constants
+
+key = Constants.OPEN_AI_API_KEY
+
+# Initialize
+def init():
+	ss['api_key'] = key
+	model.use_key(ss['api_key'])
+	index = utils.load_dict_from_file('embeddings.json')
+	ss['index'] = index
+	ss['debug']['n_pages'] = len(index['pages'])
+	ss['debug']['n_texts'] = len(index['texts'])
+	ss['debug']['pages'] = index['pages']
+	ss['debug']['texts'] = index['texts']
+	ss['debug']['summary'] = index['summary']
+
+	ss['pg_index'] = st.progress(0)
 
 # COMPONENTS
 
@@ -103,7 +121,7 @@ def ui_hyde_prompt():
 	st.text_area('HyDE prompt', prompts.HYDE, key='hyde_prompt')
 
 def ui_question():
-	st.write('## 3. Ask questions')
+	st.write('## Ask questions')
 	disabled = not ss.get('api_key')
 	st.text_area('question', key='question', height=100, placeholder='Enter question here', help='', label_visibility="collapsed", disabled=disabled)
 
@@ -181,8 +199,9 @@ with st.sidebar:
 		ui_task()
 		ui_hyde_prompt()
 
-ui_api_key()
-ui_pdf_file()
+# ui_api_key()
+# ui_pdf_file()
+init()
 ui_question()
 ui_hyde_answer()
 b_ask()
