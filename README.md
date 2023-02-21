@@ -2,7 +2,7 @@
 
 1. First define the OpenAI key in Constants.py and add it to gitignore or define the following while deploying streamlit app
 ```
-"api_key" = "sk-xxxxxxxxxxxxxx"
+api_key = "sk-xxxxxxxxxxxxxx"
 ```
 2. Create the embeddings usings create_embeddings.py
 
