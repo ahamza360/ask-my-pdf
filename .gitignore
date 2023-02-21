@@ -1,2 +1,5 @@
 src/__pycache__
 */*secret*.*
+Pipfile
+Pipfile.lock
+# src/Constants.py

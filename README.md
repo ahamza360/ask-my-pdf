@@ -1,3 +1,8 @@
+# How To Guide
+
+1. First define the OpenAI key in Constants.py and add it to gitignore.
+2. Create the embeddings usings create_embeddings.py
+
 # Ask my PDF
 
 
