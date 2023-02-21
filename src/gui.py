@@ -24,7 +24,7 @@ import os
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 key = Constants.OPEN_AI_API_KEY
-file_name = 'data_file.pdf'
+file_name = 'embeddings.json'
 
 # Initialize
 def init():
