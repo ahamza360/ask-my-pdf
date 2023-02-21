@@ -22,12 +22,13 @@ import utils
 import Constants
 
 key = Constants.OPEN_AI_API_KEY
+file_path = '/app/ask-my-pdf/src/embeddings.json'
 
 # Initialize
 def init():
 	ss['api_key'] = key
 	model.use_key(ss['api_key'])
-	index = utils.load_dict_from_file('./embeddings.json')
+	index = utils.load_dict_from_file(file_path)
 	ss['index'] = index
 	ss['debug']['n_pages'] = len(index['pages'])
 	ss['debug']['n_texts'] = len(index['texts'])
